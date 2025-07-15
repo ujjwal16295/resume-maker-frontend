@@ -11,7 +11,7 @@ export default function ResumeUploadPage() {
   const [isComplete, setIsComplete] = useState(false);
   const [error, setError] = useState('');
 
-  const API_BASE_URL = 'https://resume-maker-backend-d0sb.onrender.com';
+  const API_BASE_URL = 'https://resume-maker-backend-final.onrender.com';
 
   const handleFileUpload = (file) => {
     if (file && (file.type === 'application/pdf')) {
