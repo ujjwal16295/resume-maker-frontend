@@ -142,8 +142,8 @@ export default function Homepage() {
               Transform Your Job Search Today
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Join thousands of job seekers who've accelerated their career with AI-powered resume tailoring
-            </p>
+                Join thousands of job seekers who&apos;ve accelerated their career with AI-powered resume tailoring
+             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
