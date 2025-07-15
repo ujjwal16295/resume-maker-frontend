@@ -77,7 +77,7 @@ export default function Homepage() {
             <Star className="w-4 h-4" />
             <span>Powered by AI</span>
           </div>
-          
+
           <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Transform Your Resume
@@ -85,7 +85,7 @@ export default function Homepage() {
             <br />
             <span className="text-gray-800">In Seconds</span>
           </h1>
-          
+
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
             Upload your resume, paste any job description, and watch AI create a perfectly tailored resume in professional PDF format. 
             No signup required, completely private, instant results.
@@ -142,8 +142,8 @@ export default function Homepage() {
               Transform Your Job Search Today
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-                Join thousands of job seekers who&apos;ve accelerated their career with AI-powered resume tailoring
-             </p>
+              Join thousands of job seekers who&apos;ve accelerated their career with AI-powered resume tailoring
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -155,7 +155,7 @@ export default function Homepage() {
                 </div>
               ))}
             </div>
-            
+
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">How It Works</h3>
               <div className="space-y-4">
@@ -170,7 +170,7 @@ export default function Homepage() {
                   <div className="bg-white/20 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">2</div>
                   <div>
                     <h4 className="font-semibold">Paste Job Description</h4>
-                    <p className="text-sm opacity-90">Copy any job posting you're interested in</p>
+                    <p className="text-sm opacity-90">Copy any job posting you&apos;re interested in</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
