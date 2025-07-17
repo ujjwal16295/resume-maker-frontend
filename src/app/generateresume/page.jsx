@@ -11,7 +11,7 @@ export default function ResumeUploadPage() {
   const [isComplete, setIsComplete] = useState(false);
   const [error, setError] = useState('');
 
-  const API_BASE_URL = 'https://resume-maker-backend-final.onrender.com';
+  const API_BASE_URL = 'http://localhost:3001';
 
   const handleFileUpload = (file) => {
     if (file && (file.type === 'application/pdf')) {
@@ -84,7 +84,7 @@ export default function ResumeUploadPage() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'optimized-resume.pdf'; // Changed to .pdf
+      a.download = 'Resume-by-resumeAi.pdf'; // Changed to .pdf
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);

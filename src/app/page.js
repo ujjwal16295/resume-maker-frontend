@@ -18,7 +18,7 @@ export default function Homepage() {
     {
       icon: <Shield className="w-6 h-6" />,
       title: "100% Private & Secure",
-      description: "Your data never leaves your browser. No accounts, no storage, no tracking. Complete privacy guaranteed."
+      description: "No accounts, no storage, no tracking. Complete privacy guaranteed."
     },
     {
       icon: <Download className="w-6 h-6" />,
@@ -55,20 +55,23 @@ export default function Homepage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
-        <nav className="flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
-              <Sparkles className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              ResumeAI
-            </span>
-          </div>
-          <Link className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105" href="/generateresume">
-            Get Started Free
-          </Link>
-        </nav>
-      </header>
+  <nav className="flex justify-between md:justify-between justify-center items-center">
+    <div className="flex items-center space-x-2">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
+        <Sparkles className="w-6 h-6 text-white" />
+      </div>
+      <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        ResumeAI
+      </span>
+    </div>
+    <Link 
+      className="hidden md:block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105" 
+      href="/generateresume"
+    >
+      Get Started Free
+    </Link>
+  </nav>
+</header>
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20">
@@ -188,38 +191,41 @@ export default function Homepage() {
 
       {/* CTA Section */}
       <section className="container mx-auto px-6 py-20">
-        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-12 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
-            Ready to Land Your Dream Job?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Stop sending generic resumes. Start getting interviews with AI-tailored applications that stand out.
-          </p>
-          <Link className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-xl text-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105" href="/generateresume">
-            Start Tailoring for Free
-          </Link>
-          <p className="text-sm text-gray-500 mt-4">
-            No credit card required • No signup needed • Complete privacy guaranteed
-          </p>
-        </div>
-      </section>
+  <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-12 text-center">
+    <h2 className="text-4xl font-bold text-gray-800 mb-4">
+      Ready to Land Your Dream Job?
+    </h2>
+    <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+      Stop sending generic resumes. Start getting interviews with AI-tailored applications that stand out.
+    </p>
+    <Link 
+      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 sm:px-12 py-4 rounded-xl text-lg sm:text-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-block w-full sm:w-auto max-w-xs sm:max-w-none" 
+      href="/generateresume"
+    >
+      Start Tailoring for Free
+    </Link>
+    <p className="text-sm text-gray-500 mt-4">
+      No credit card required • No signup needed • Complete privacy guaranteed
+    </p>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold">ResumeAI</span>
-            </div>
-            <div className="text-sm text-gray-400">
-              © 2025 ResumeAI. Built with privacy in mind.
-            </div>
-          </div>
+  <div className="container mx-auto px-6">
+    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+      <div className="flex items-center space-x-2">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
+          <Sparkles className="w-6 h-6 text-white" />
         </div>
-      </footer>
+        <span className="text-xl font-bold">ResumeAI</span>
+      </div>
+      <div className="text-sm text-gray-400 text-center md:text-left">
+        © 2025 ResumeAI. Built with privacy in mind.
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
