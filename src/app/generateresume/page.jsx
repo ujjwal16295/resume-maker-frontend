@@ -1,12 +1,10 @@
 "use client"
 import React, { useState } from 'react';
-import { Upload, FileText, Briefcase, Zap, X, CheckCircle, AlertCircle, Settings, ChevronDown, ChevronUp } from 'lucide-react';
+import { Upload, FileText, Briefcase, Zap, X, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function ResumeUploadPage() {
   const [userResumeFile, setUserResumeFile] = useState(null);
   const [jobRequirements, setJobRequirements] = useState('');
-  const [extraInfo, setExtraInfo] = useState('');
-  const [showExtraInfo, setShowExtraInfo] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [processingStep, setProcessingStep] = useState('');
@@ -61,11 +59,6 @@ export default function ResumeUploadPage() {
       formData.append('resume', userResumeFile);
       formData.append('jobRequirements', jobRequirements);
       
-      // Add extra info if provided
-      if (extraInfo.trim()) {
-        formData.append('extraInfo', extraInfo.trim());
-      }
-      
       setProcessingStep('Analyzing your resume with AI...');
       
       const response = await fetch(`${API_BASE_URL}/api/optimize-resume`, {
@@ -91,7 +84,7 @@ export default function ResumeUploadPage() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'Resume-by-resumeAi.pdf';
+      a.download = 'Resume-by-resumeAi.pdf'; // Changed to .pdf
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
@@ -260,59 +253,6 @@ export default function ResumeUploadPage() {
             </div>
           </div>
 
-          {/* Extra Customization Section - Optional */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Settings className="w-5 h-5 text-gray-600" />
-                <h3 className="text-lg font-semibold text-gray-800">Additional Customization</h3>
-                <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">Optional</span>
-              </div>
-              <button
-                onClick={() => setShowExtraInfo(!showExtraInfo)}
-                className="flex items-center space-x-1 text-blue-600 hover:text-blue-700 transition-colors"
-              >
-                <span className="text-sm font-medium">
-                  {showExtraInfo ? 'Hide' : 'Show'} Customization
-                </span>
-                {showExtraInfo ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
-            </div>
-
-            {showExtraInfo && (
-              <div className="space-y-4 border-2 border-gray-100 rounded-xl p-6 bg-gray-50">
-                <div className="relative">
-                  <textarea
-                    value={extraInfo}
-                    onChange={(e) => setExtraInfo(e.target.value)}
-                    placeholder="Add any specific preferences for your resume optimization:&#10;&#10;Examples:&#10;• Emphasize leadership experience&#10;• Use a modern, creative design&#10;• Focus on technical skills section&#10;• Include more quantifiable achievements&#10;• Highlight remote work experience&#10;• Use conservative/traditional formatting&#10;• Prioritize certain projects or experiences&#10;• Specific industry keywords to include&#10;• Any sections to emphasize or de-emphasize"
-                    className="text-black w-full h-48 p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors resize-none bg-white"
-                  />
-                  <div className="absolute bottom-3 right-3 text-sm text-gray-400">
-                    {extraInfo.length} characters
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-2 bg-blue-50 p-3 rounded-lg">
-                  <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-blue-700">
-                    <p className="font-medium">Customization Tips:</p>
-                    <ul className="mt-1 space-y-1">
-                      <li>• Specify design preferences (modern, traditional, creative)</li>
-                      <li>• Mention skills or experiences you want to highlight</li>
-                      <li>• Include industry-specific requirements or keywords</li>
-                      <li>• Request specific formatting or layout preferences</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
           {/* Single Action Button */}
           <div className="pt-8 border-t border-gray-200">
             <div className="flex flex-col items-center space-y-4">
@@ -364,9 +304,6 @@ export default function ResumeUploadPage() {
                 <p>🔒 Your files are processed securely and never stored permanently</p>
                 <p>⚡ AI optimization and download typically takes 30-60 seconds</p>
                 <p>📄 Download will be in PDF format</p>
-                {extraInfo.trim() && (
-                  <p>🎨 Custom preferences will be applied during optimization</p>
-                )}
               </div>
             </div>
           </div>
@@ -392,10 +329,10 @@ export default function ResumeUploadPage() {
           
           <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 text-center">
             <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Settings className="w-6 h-6 text-purple-600" />
+              <FileText className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="font-semibold text-gray-800 mb-2">Customizable</h3>
-            <p className="text-sm text-gray-600">Add specific preferences to personalize your resume optimization.</p>
+            <h3 className="font-semibold text-gray-800 mb-2">PDF Format</h3>
+            <p className="text-sm text-gray-600">Get your optimized resume as a professional PDF document.</p>
           </div>
         </div>
       </div>
