@@ -1,9 +1,26 @@
 "use client"
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FileText, Zap, Shield, Download, Brain, Clock, CheckCircle, ArrowRight, Star, Users, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import GoogleAds from './GoogleAds'; // Adjust the import path based on your file structure
 
 export default function Homepage() {
+  // Load Google AdSense script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4150861973710697';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup if needed
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const features = [
     {
       icon: <Brain className="w-6 h-6" />,
@@ -55,23 +72,23 @@ export default function Homepage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
-  <nav className="flex justify-between md:justify-between justify-center items-center">
-    <div className="flex items-center space-x-2">
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
-        <Sparkles className="w-6 h-6 text-white" />
-      </div>
-      <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        ResumeAI
-      </span>
-    </div>
-    <Link 
-      className="hidden md:block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105" 
-      href="/generateresume"
-    >
-      Get Started Free
-    </Link>
-  </nav>
-</header>
+        <nav className="flex justify-between md:justify-between justify-center items-center">
+          <div className="flex items-center space-x-2">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
+              <Sparkles className="w-6 h-6 text-white" />
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              ResumeAI
+            </span>
+          </div>
+          <Link 
+            className="hidden md:block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105" 
+            href="/generateresume"
+          >
+            Get Started Free
+          </Link>
+        </nav>
+      </header>
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20">
@@ -137,6 +154,11 @@ export default function Homepage() {
         </div>
       </section>
 
+      {/* Google Ads - Above "Transform Your Job Search Today" */}
+      <section className="container mx-auto px-6 py-8">
+        <GoogleAds className="max-w-4xl mx-auto" />
+      </section>
+
       {/* Benefits Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
         <div className="container mx-auto px-6">
@@ -189,43 +211,48 @@ export default function Homepage() {
         </div>
       </section>
 
+      {/* Google Ads - Above "Ready to Land Your Dream Job?" */}
+      <section className="container mx-auto px-6 py-8">
+        <GoogleAds className="max-w-4xl mx-auto" />
+      </section>
+
       {/* CTA Section */}
       <section className="container mx-auto px-6 py-20">
-  <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-12 text-center">
-    <h2 className="text-4xl font-bold text-gray-800 mb-4">
-      Ready to Land Your Dream Job?
-    </h2>
-    <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-      Stop sending generic resumes. Start getting interviews with AI-tailored applications that stand out.
-    </p>
-    <Link 
-      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 sm:px-12 py-4 rounded-xl text-lg sm:text-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-block w-full sm:w-auto max-w-xs sm:max-w-none" 
-      href="/generateresume"
-    >
-      Start Tailoring for Free
-    </Link>
-    <p className="text-sm text-gray-500 mt-4">
-      No credit card required • No signup needed • Complete privacy guaranteed
-    </p>
-  </div>
-</section>
+        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-12 text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Ready to Land Your Dream Job?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Stop sending generic resumes. Start getting interviews with AI-tailored applications that stand out.
+          </p>
+          <Link 
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 sm:px-12 py-4 rounded-xl text-lg sm:text-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-block w-full sm:w-auto max-w-xs sm:max-w-none" 
+            href="/generateresume"
+          >
+            Start Tailoring for Free
+          </Link>
+          <p className="text-sm text-gray-500 mt-4">
+            No credit card required • No signup needed • Complete privacy guaranteed
+          </p>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
-  <div className="container mx-auto px-6">
-    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-      <div className="flex items-center space-x-2">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
-          <Sparkles className="w-6 h-6 text-white" />
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex items-center space-x-2">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xl font-bold">ResumeAI</span>
+            </div>
+            <div className="text-sm text-gray-400 text-center md:text-left">
+              © 2025 ResumeAI. Built with privacy in mind.
+            </div>
+          </div>
         </div>
-        <span className="text-xl font-bold">ResumeAI</span>
-      </div>
-      <div className="text-sm text-gray-400 text-center md:text-left">
-        © 2025 ResumeAI. Built with privacy in mind.
-      </div>
-    </div>
-  </div>
-</footer>
+      </footer>
     </div>
   );
 }
