@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { FileText, Zap, Shield, Download, Brain, Clock, CheckCircle, ArrowRight, Star, Users, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import GoogleAds from './GoogleAds'; // Adjust the import path based on your file structure
+import GoogleAds from '../components/GoogleAdsBanner'; // Adjust the import path based on your file structure
 
 export default function Homepage() {
   // Load Google AdSense script
@@ -72,7 +72,7 @@ export default function Homepage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <header className="container mx-auto px-6 py-8">
-        <nav className="flex justify-between md:justify-between justify-center items-center">
+        <nav className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
               <Sparkles className="w-6 h-6 text-white" />
@@ -81,12 +81,20 @@ export default function Homepage() {
               ResumeAI
             </span>
           </div>
-          <Link 
-            className="hidden md:block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105" 
-            href="/generateresume"
-          >
-            Get Started Free
-          </Link>
+          <div className="flex items-center space-x-6">
+            <Link href="/about" className="text-gray-600 hover:text-gray-800 transition-colors">
+              About Us
+            </Link>
+            <Link href="/contact" className="text-gray-600 hover:text-gray-800 transition-colors">
+              Contact Us
+            </Link>
+            <Link 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105" 
+              href="/generateresume"
+            >
+              Get Started Free
+            </Link>
+          </div>
         </nav>
       </header>
 
@@ -155,9 +163,9 @@ export default function Homepage() {
       </section>
 
       {/* Google Ads - Above "Transform Your Job Search Today" */}
-      <section className="container mx-auto px-6 py-8">
+      {/* <section className="container mx-auto px-6 py-8">
         <GoogleAds className="max-w-4xl mx-auto" />
-      </section>
+      </section> */}
 
       {/* Benefits Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
@@ -212,9 +220,9 @@ export default function Homepage() {
       </section>
 
       {/* Google Ads - Above "Ready to Land Your Dream Job?" */}
-      <section className="container mx-auto px-6 py-8">
+      {/* <section className="container mx-auto px-6 py-8">
         <GoogleAds className="max-w-4xl mx-auto" />
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="container mx-auto px-6 py-20">
